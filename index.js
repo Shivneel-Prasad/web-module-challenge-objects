@@ -15,9 +15,11 @@ The function should:
   Example createMenuItem('tacos', 8, 'Lunch') should return {name: 'tacos', price: 8, category: 'Lunch'}
 */
 // pass 3 params - name price category
-function createMenuItem(/*Your code here*/){
-    /*Your code here*/
+function createMenuItem(name, price, category){
+    return {name, price, category};
 }
+
+console.log('Task 1a:', createMenuItem('tacos', 8, 'Lunch'));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Invoke your function!
@@ -29,7 +31,9 @@ Test your createMenuItems function by doing the following:
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
 
-
+  console.log(`Task 1b:`, createMenuItem("pizza",5,"lunch"));
+  console.log(`Task 1b:`, createMenuItem("chicken-sandwich",2,"Brunch"));
+  console.log(`Task 1b:`, createMenuItem("oreo-shake",3.49,"drinks"));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to the 
@@ -48,10 +52,20 @@ const burger = {
   price: 18, 
   category: "Lunch", 
   // need to use 'this' key inside of the method - this.price // you are not updating the price instead you are just to return the discounted price
-  
+  discount: function(person) {
+    
+      if(person === 'teacher' || person === 'student'){
+          return this.price - (this.price * .25);
+      } else if (person === 'public'){
+        return this.price - (this.price * .10);
+      } else {
+          return 'no discount available for you'
+      }
+  }
 }
 
-
+console.log('Task 2:', burger.discount("teacher"));
+console.log('Task 2:', burger.discount("public"));
 
 ///////////////Reviews (MVP)///////////////////
 const reviews = [
@@ -78,7 +92,7 @@ Reyna's feedback is missing! Use what you know to do the following: (no function
   2. log the reviews array to the console to check your work
 */
 reviews[7].feedback = 'this place is chill with really cool people, great for getting work done on weekdays';
-console.log(reviews);
+console.log('Task 4:', reviews);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -90,9 +104,9 @@ Write a function that creates an object with name, rating, feedback, add the new
   4. should return the resulting array
 */
 // pass array, name, rating, feedback as param
-function addReview(/*Your Code Here */){
-  /*Your Code Here */
+function addReview(array){
   // push the object to the end of the array
+    
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -106,10 +120,11 @@ Use the getReviewByIndex function below to do the following:
 */
 
 // array, index
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
-  // return the string
+function getReviewByIndex(array, number) {
+    // return the string
+    return `${array[number].name} gave the restaurant a ${array[number].rating} star review, and their feedback was: ${array[number].feedback}`;
 }
+  console.log('Task 6:', getReviewByIndex(reviews, 5));
 
 
   
@@ -126,11 +141,11 @@ Use the getLastReview function below to do the following:
 */
 
 // receive an array as a param
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
+function getLastReview(array) {
   // array.length - 1 will be useful
+  return `${array[array.length - 1].name} gave the restaurant a ${array[array.length - 1].rating} star review, and their feedback was: ${array[array.length - 1].feedback}`;
 } 
-
+console.log('Task 7:', getLastReview(reviews));
 
 
 ///////////////🍔☕️🍽 STRETCH🍔☕️🍽////////////////////
